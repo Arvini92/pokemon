@@ -1,0 +1,42 @@
+.header {
+    background-color: var(--dark);
+    color: var(--white);
+    height: 50px;
+    display: flex;
+    text-decoration: none;
+}
+
+.pokeball {
+    background-image: url(../assets/images/pokeball.png);
+    background-size: cover;
+    width: 30px;
+    height: 30px;
+    margin-left: 10%;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.title {
+    margin-top: 16px;
+    margin-bottom: 16px;
+    margin-left: 16px;
+    text-transform: uppercase;
+    font-size: 18px;
+}
+
+.background {
+    background-image: url(../assets/images/Background_2.png);
+    background-size: cover;
+    background-position-x: center;
+    background-position-y: center;
+    background-attachment: fixed;
+}
+
+.container {
+    display: flex;
+    width: 1024px;
+    height: 100%;
+    background-color: var(--white);
+    margin: auto;
+    flex-direction: column;
+}

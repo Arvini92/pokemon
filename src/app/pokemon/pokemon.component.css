@@ -1,0 +1,88 @@
+.item {
+    width: 216px;
+    height: 238px;
+    background-color: var(--grey);
+    border-radius: 6px;
+    margin-right: 13px;
+    margin-bottom: 60px;
+    display: flex;
+    flex-direction: column;
+}
+
+.i-title {
+    display: flex;
+    margin-top: 6px;
+    margin-left: 6px;
+}
+
+.i-num {
+   margin-right: 2px;
+}
+
+.i-name {
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+.i-pic {
+    margin: auto;
+}
+
+.i-but {
+    display: flex;
+    text-align: center;
+}
+
+.i-left {
+    width: 108px;
+    height: 22px;
+    line-height: 22px;
+    border-radius: 0 6px;
+    background-color: yellow;
+}
+
+.i-right {
+    width: 108px;
+    height: 22px;
+    line-height: 22px;
+    border-radius: 6px 0;
+    background-color: pink;
+}
+
+.fire {
+    background-color: var(--orange);
+}
+
+.grass {
+    background-color: var(--salad);
+}
+
+.bug {
+    background-color: var(--salad);
+}
+
+.water {
+    background-color: var(--blue);
+}
+
+.flying {
+    background-color: var(--dark-grey);
+}
+
+.poison {
+    background-color: var(--purple);
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+a.item:link {
+    text-decoration: inherit;
+    color: inherit;
+}
+
+a.item:visited {
+    text-decoration: inherit;
+    color: inherit;
+}

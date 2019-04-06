@@ -1,1 +1,74 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+    font-family: Montserrat;
+    font-weight: bold;
+    margin: 0;
+}
+
+h1 {
+    font-family: Montserrat;
+    font-weight: bold;
+    color: var(--dark);
+    margin: 0;
+}
+
+h2 {
+    font-family: Montserrat;
+    font-weight: lighter;
+    color: var(--dark);
+    margin: 0;
+}
+
+h3 {
+    font-family: Alternate;
+    color: var(--dark);
+    font-size: 3.2rem;
+    margin: 0;
+}
+
+h4 {
+    font-family: Alternate;
+    color: var(--dark);
+    font-size: 1.3rem;
+    margin: 0;
+}
+
+:root{
+    --white: #F2F1F1;
+    --grey: #DBDBDB;
+    --dark-grey: #606C78;
+    --dark: #1F2532;
+    --blue: #4A90E2;
+    --purple: #BE93E7;
+    --orange: #E85B0E;
+    --salad: #A0DA5E;
+    --btn-blue: #438BDF;
+    --btn-orange: #E85B0E;
+}
+
+@font-face {
+    font-family: Montserrat;
+    src: url(./assets/fonts/Montserrat-Bold.ttf);
+    font-style: normal; 
+    font-weight: bold; 
+}
+
+@font-face {
+    font-family: Montserrat;
+    src: url(./assets/fonts/Montserrat-Regular.ttf);
+    font-style: normal; 
+    font-weight: normal; 
+}
+
+@font-face {
+    font-family: Montserrat;
+    src: url(./assets/fonts/Montserrat-UltraLight.otf);
+    font-style: normal; 
+    font-weight: lighter; 
+}
+
+@font-face {
+    font-family: Alternate;
+    src: url(./assets/fonts/DIN-Alternate-Medium.otf);
+    font-style: normal; 
+    font-weight: normal; 
+}

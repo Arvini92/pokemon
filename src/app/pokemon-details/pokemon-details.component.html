@@ -1,0 +1,94 @@
+<div class="navbar">
+  <div class="nav nav-left">
+      <a class="btn-left" routerLink=""></a>
+      <div class="btn-title">
+          <div class="btn-num">#pokemonPrev.id | id</div>
+          <div class="btn-name">pokemonPrev.name</div>
+      </div>
+  </div>
+  <div class="nav nav-right">
+      <div class="btn-title">
+          <div class="btn-name">pokemonNext.name</div>
+          <div class="btn-num">#pokemonNext.id | id</div>
+      </div>
+      <a class="btn-right" routerLink=""></a>
+  </div>
+</div>
+  
+<div class="d-middle">
+  <div class="d-title">
+    <h2 class="d-num">#{{pokemon.id | id}}</h2>
+    <h2 class="d-name">{{pokemon.name}}</h2>
+  </div>
+</div>
+
+
+<div class="d-container">
+  
+  <div class="d-full-item">
+      <div class="d-item">
+          <img class="d-pic" src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/{{pokemon.id | id}}.png" alt="{{pokemon.name}}">
+          <div class="d-but">
+              <div class="d-but-left">{{pokemon.types[0]}}</div>
+              <div class="d-but-right">{{pokemon.types[1]}}</div>
+          </div>
+      </div>
+      <div class="d-desc">
+          Bulbasaur can be seen napping in bright sunlight.
+          There is a seed on its back. By soaking up the sun's
+          rays, the seed grows progressively larger.
+      </div>
+  </div>
+  <div class="d-left-side">
+      <div class="stats">
+          <div class="stats-prop">
+              <div class="stats-prop-name">Height</div>
+              <div class="stats-prop-value">{{pokemon.height | dec}} m</div>
+          </div>
+          <div class="stats-prop">
+              <div class="stats-prop-name">Category</div>
+              <div class="stats-prop-value">Seed</div>
+          </div>
+          <div class="stats-prop">
+              <div class="stats-prop-name">Weight</div>
+              <div class="stats-prop-value">{{pokemon.weight | dec}} kg</div>
+          </div>
+          <div class="stats-prop">
+              <div class="stats-prop-name">Abilities</div>
+              <div class="stats-prop-value" *ngFor="let ability of pokemon.abilities" >{{ability}}</div>
+          </div>
+          <div class="stats-prop">
+              <div class="stats-prop-name">Gender</div>
+              <div class="stats-prop-value">F/M</div>
+          </div>
+      </div>
+
+      <div class="base-stats">
+          <div class="base-stats-cont">
+              <div class="base-stats-h">Base Stats</div>
+              <div class="base-stats-graph">
+                    <div class="base-stats-graph-i" *ngFor="let stat of pokemon.stats">
+                        <div class="base-stats-graph-empty"></div>
+                        <div class="base-stats-graph-value" [ngStyle]="{'height': '40 px'}">{{stat.base_stat}}</div>
+                    </div>
+              </div>
+              <div class="base-stats-graph-names">
+                    <div class="base-stats-graph-name" *ngFor="let stat of pokemon.stats">
+                        {{stat.name}}
+                    </div>
+              </div>
+          </div>
+          
+      </div>
+  </div>
+
+</div>
+
+<div class="moves">
+  <div class="moves-h">Moves</div>
+  <div class="grid">
+      <div class="grid-item" *ngFor="let move of pokemon.moves">{{move}}</div>
+  </div>
+  <button class="btn-exp-more">Explore more pokémon</button>
+</div>
+

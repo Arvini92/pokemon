@@ -1,0 +1,7 @@
+<h1 class="h1-main">Pokédex</h1>
+
+<div class="i-container">
+  <app-pokemon *ngFor="let pokemon of pokemons" [pokemon]="pokemon"></app-pokemon>
+  <button class="btn-more" (click)="loadMore()">Load More</button>
+</div>
+

@@ -1,0 +1,11 @@
+<a class="item" routerLink="/pokemon/{{pokemon.id}}">
+    <div class="i-title">
+      <h2 class="i-num">#{{pokemon.id | id}}</h2>
+      <h2 class="i-name">{{pokemon.name}}</h2>
+    </div>
+    <img class="i-pic" src="https://assets.pokemon.com/assets/cms2/img/pokedex/detail/{{pokemon.id | id}}.png" alt="{{pokemon.name}}">
+    <div class="i-but">
+      <div class="i-left" [ngClass]="leftCssClass">{{pokemon.types[0]}}</div>
+      <div class="i-right" [ngClass]="rightCssClass">{{pokemon.types[1]}}</div>
+    </div>
+</a>
