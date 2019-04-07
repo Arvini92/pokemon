@@ -1,17 +1,17 @@
 <div class="navbar">
   <div class="nav nav-left">
-      <a class="btn-left" routerLink=""></a>
+      <a class="btn-left" routerLink="/pokemon/{{pokemonPrev.id}}"></a>
       <div class="btn-title">
-          <div class="btn-num">#pokemonPrev.id | id</div>
-          <div class="btn-name">pokemonPrev.name</div>
+          <div class="btn-num">#{{pokemonPrev.id | id}}</div>
+          <div class="btn-name">{{pokemonPrev.name}}</div>
       </div>
   </div>
   <div class="nav nav-right">
       <div class="btn-title">
-          <div class="btn-name">pokemonNext.name</div>
-          <div class="btn-num">#pokemonNext.id | id</div>
+          <div class="btn-name">{{pokemonNext.name}}</div>
+          <div class="btn-num">#{{pokemonNext.id | id}}</div>
       </div>
-      <a class="btn-right" routerLink=""></a>
+      <a class="btn-right" routerLink="/pokemon/{{pokemonNext.id}}"></a>
   </div>
 </div>
   

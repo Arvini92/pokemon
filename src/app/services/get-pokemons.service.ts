@@ -12,16 +12,22 @@ export class GetPokemonsService {
   ) { }
 
   getMorePokemonsDetails(id: number) {
+    this.getPokemon(id);
+    let prev = id - 1;
+    console.log('prev', prev);
+    let next = id + 1;
+    this.getPokemon(prev);
+    this.getPokemon(next);
     let first = 0;
-    let last = id < 12 ? 12 : Math.round(id /12) * 12;
-    // console.log(first, last);
-    this.getPokemons(first, last);
+    this.getPokemons(first, prev - 1);
+    let last = next < 12 ? 12 : Math.round(next /12) * 12;
+    this.getPokemons(next, last);
   }
 
   getMorePokemons() {
     let first = this.pokemonService.getPokemonsCount();
     let last = first + 12;
-    // console.log(first, last);
+    console.log('getMorePokemons', first, last);
     this.getPokemons(first, last);
   }
 

@@ -12,43 +12,83 @@ import { Subscription } from 'rxjs';
 })
 export class PokemonDetailsComponent implements OnInit {
   subscription: Subscription;
+  pokemonSubscription: Subscription;
   pokemon : Pokemon;
   pokemonPrev : Pokemon;
   pokemonNext : Pokemon;
   id: number;
+  leftCssClass : string;
+  rightCssClass : string;
 
   constructor(
     private getPokemonsService: GetPokemonsService,
     private pokemonService: PokemonService, 
     private route: ActivatedRoute
-  ) { }
+  ) {}
 
   ngOnInit() {
+    this.pokemon = new Pokemon("", "", [], [], [], "", "", []);
+    this.pokemonPrev = new Pokemon("", "", [], [], [], "", "", []);
+    this.pokemonNext = new Pokemon("", "", [], [], [], "", "", []);
     this.route.params.subscribe(
       (params: Params) => {
         this.id = +params['id'];
-        this.getPokemonsService.getMorePokemonsDetails(this.id);
-        // this.pokemon = this.pokemonService.getPokemon(this.id - 1);
+        if(this.pokemonService.isPokemonsEmpty()) {
+          this.getPokemonsService.getMorePokemonsDetails(this.id);
+        } else {
+          this.pokemon = this.pokemonService.getPokemon(this.id - 1);
+          this.pokemonPrev = this.pokemonService.getPokemon(this.id - 2);
+          if(this.pokemonService.getPokemon(this.id)) {
+            this.pokemonNext = this.pokemonService.getPokemon(this.id);
+          } else {
+            this.getPokemonsService.getMorePokemons();
+          }
+          
+          console.log('this.pokemonNext', this.pokemonNext)
+        }
         console.log("params['id']", params['id']);
-        // console.log(this.pokemon);
       }
     );
-    this.subscription = this.pokemonService.pokemonChanged
+    this.pokemonSubscription = this.pokemonService.pokemonFound
       .subscribe(
-        (pokemons: Pokemon[]) => {
-          // console.log(pokemons)
-          this.pokemon = pokemons[this.id - 1];
-          // this.pokemonPrev = pokemons[this.id - 2];
-          // this.pokemonNext = pokemons[this.id];
-          // console.log(this.pokemon)
-          // console.log(this.pokemonPrev)
-          // console.log(this.pokemonNext)
+        (pokemon: Pokemon) => {
+          // console.log('pokemon', pokemon)
+          if(+pokemon.id == this.id) {
+            this.pokemon = pokemon;
+          }
+          if(+pokemon.id == this.id - 1) {
+            this.pokemonPrev = pokemon;
+          }
+          if(+pokemon.id == this.id + 1) {
+            this.pokemonNext = pokemon;
+          }
+          // console.log('this.pokemon', this.pokemon)
+          // console.log('this.pokemonPrev', this.pokemonPrev)
+          // console.log('this.pokemonNext', this.pokemonNext)
         }
       );
   }
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
+    this.pokemonSubscription.unsubscribe();
+  }
+
+  chooseLeftClass(pokemon: Pokemon) {
+    if(pokemon.types[0]) {
+      this.leftCssClass = pokemon.types[0];
+    } else {
+      this.leftCssClass = 'hidden';
+    }
+
+  }
+
+  chooseRightClass(pokemon: Pokemon) {
+    if(pokemon.types[1]) {
+      this.rightCssClass = pokemon.types[1];
+    } else {
+      this.rightCssClass = 'hidden';
+    }
   }
 
 }

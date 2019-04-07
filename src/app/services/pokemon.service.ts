@@ -7,6 +7,7 @@ import { Subject } from 'rxjs';
 })
 export class PokemonService {
   pokemonChanged = new Subject<Pokemon[]>();
+  pokemonFound = new Subject<Pokemon>();
   pokemons: Pokemon[] = [];
 
   constructor() { }
@@ -24,6 +25,7 @@ export class PokemonService {
     );
     this.pokemons.push(pokemon);
     this.sortPokemons();
+    this.pokemonFound.next(pokemon);
     this.pokemonChanged.next(this.pokemons.slice());
   }
 
@@ -31,6 +33,7 @@ export class PokemonService {
     console.log("getPokemon", index);
     console.log(this.pokemons);
     return this.pokemons[index];
+    // this.pokemonFound.next(this.pokemons[index]);
   }
 
   getTypes(types: any[]) {
@@ -81,5 +84,10 @@ export class PokemonService {
 
   getPokemonsCount() {
     return this.pokemons.length;
+  }
+
+  isPokemonsEmpty() {
+    console.log(this.pokemons.length === 0);
+    return this.pokemons.length === 0;
   }
 }
