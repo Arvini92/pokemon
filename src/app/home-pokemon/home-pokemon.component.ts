@@ -29,6 +29,8 @@ export class HomePokemonComponent implements OnInit {
       );
     if(this.pokemonService.isPokemonsEmpty()) {
       this.getPokemonsService.getMorePokemons();
+    } else {
+      this.pokemonService.getPokemons();
     }
   }
 

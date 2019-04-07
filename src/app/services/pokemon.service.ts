@@ -30,10 +30,11 @@ export class PokemonService {
   }
 
   getPokemon(index: number) {
-    console.log("getPokemon", index);
-    console.log(this.pokemons);
     return this.pokemons[index];
-    // this.pokemonFound.next(this.pokemons[index]);
+  }
+
+  getPokemons() {
+    this.pokemonChanged.next(this.pokemons.slice());
   }
 
   getTypes(types: any[]) {
@@ -87,7 +88,6 @@ export class PokemonService {
   }
 
   isPokemonsEmpty() {
-    console.log(this.pokemons.length === 0);
     return this.pokemons.length === 0;
   }
 }

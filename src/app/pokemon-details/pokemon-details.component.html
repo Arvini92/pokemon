@@ -1,5 +1,5 @@
 <div class="navbar">
-  <div class="nav nav-left">
+  <div class="nav nav-left" [ngClass]="leftCssClass">
       <a class="btn-left" routerLink="/pokemon/{{pokemonPrev.id}}"></a>
       <div class="btn-title">
           <div class="btn-num">#{{pokemonPrev.id | id}}</div>
